@@ -1,1 +1,2 @@
-# parallelism
+# parallel
+project for parallelism course
