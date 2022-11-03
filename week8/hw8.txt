@@ -1,0 +1,68 @@
+#define endmark 1000
+double stream xy;
+double stream xz;
+double stream yx;
+double stream yz;
+double stream zx;
+double stream zy;
+
+
+
+void  sloveX(){
+    double x,y,z;
+    int time;
+    recv(yx,y);
+    recv(zx,z);
+    for(time=1;time<=endmark;time+=1){
+       
+        x =(8+z-y)/2;
+        send(xy,x);
+        send(xz,x);
+    }
+    cout << "x:="<< x << endl;
+}
+
+void  sloveY(){
+    double x,y,z;
+    int time;
+    recv(zy,z);
+    recv(xy,x);
+    for(time=1;time<=endmark;time+=1){
+       
+        y =-1*(-11-2*z+3*x);
+        send(yz,y);
+        send(yx,y);
+    }
+    cout << "y:="<< y << endl;
+}
+
+void  sloveZ(){
+    double x,y,z;
+    int time;
+
+    for(time=1;time<=endmark;time+=1){
+        recv(yz,y);
+        recv(xz,x);
+        z = -1*(-3-2*x+-y)/2;
+        send(xz,z);
+        send(xy,z);
+    }
+       cout << "z:="<< z << endl;
+}
+
+int main() {
+    int i, xvalue;
+    
+    send(xy,0);
+    send(xz,0);
+    send(yz,0);
+    send(yx,0);
+    send(zy,0);
+    send(zx,0);
+
+    fork sloveX();
+    fork sloveY();
+    fork sloveZ();
+
+    return 0;
+}
