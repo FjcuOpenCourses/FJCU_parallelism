@@ -1,19 +1,19 @@
 #include <stdlib.h>
 #include <math.h>
 #define endmark -1
-double stream xy;
-double stream xz;
-double stream yx;
-double stream yz;
-double stream zx;
-double stream zy;
+float stream xy;
+float stream xz;
+float stream yx;
+float stream yz;
+float stream zx;
+float stream zy;
 
-boolean isConverage(double a,double b){
-    return  fabs(a-b)<0.0001;
+boolean isConverage(float a,float b){
+    return  fabs(a-b)<0.00001;
 }
 
 void  sloveX(){
-    double newx,x,y,z;
+    float newx,x,y,z;
     recv(yx,y);
     recv(zx,z);
     while(true){
@@ -33,11 +33,11 @@ void  sloveX(){
 }
 
 void  sloveY(){
-    double x,newy,y,z;
+    float x,newy,y,z;
     recv(zy,z);
     recv(xy,x);
      while(true){
-        newy =-1*(-11-2*z+3*x);
+        newy =(17-3*x+2*z)/3;
         if(isConverage(newy,y)){
             y=newy;
             send(yz,y);
@@ -53,11 +53,11 @@ void  sloveY(){
 }
 
 void  sloveZ(){
-    double x,y,newz,z;
+    float x,y,newz,z;
     recv(yz,y);
     recv(xz,x);
     while(true){
-        newz = -1*(-3-2*x+-y)/2;
+        newz = (-3+2*x-y)/2;
         if(isConverage(newz,z)){
             z=newz;
             send(xz,z);
