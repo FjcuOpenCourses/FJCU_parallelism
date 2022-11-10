@@ -1,6 +1,6 @@
 #include<math.h>
 
-void mySlseep(){
+void mySleep(){
 	int i_max =20, j_max = 20;
 	int i,j,s;
 	for(i=0;i<i_max;i++){
@@ -21,8 +21,7 @@ main(){
 	}
 	forall i =1 to 100 do {
 		if(a[i] != 2*i){
-			cout <<"error"<<a[i]"<>"<< 2*i <<endl;
-
+			cout <<"error"<<a[i]<<"<>"<<2*i<<endl;
 		}
 	}
 	

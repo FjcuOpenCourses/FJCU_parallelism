@@ -1,0 +1,1 @@
+D:\Program\VS Program\OpenMP Sort\x64\Debug\OpenMP Sort.exe
