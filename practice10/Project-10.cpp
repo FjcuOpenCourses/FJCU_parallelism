@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <iostream>
 
-
 using namespace std;
 int train[M][N];
 
