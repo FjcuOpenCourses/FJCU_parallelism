@@ -20,5 +20,9 @@ namespace MatrixLib
         static vector<float> Max(vector<float> input, int value);
         static int  sum(vector<vector<float>> input);
         static int  sum(vector<float> input);
+        static vector<float> Rand(int Size1);
+        static vector<vector<float>> Rand(int Size1,int Size2);
+        static vector<vector<vector<float>>> Rand(int Size1, int Size2,int Size3);
+
     };
 }
