@@ -20,26 +20,50 @@ namespace MathLibrary
     vector<vector<float>>  Numpy:: arange(vector<vector<float>> input) {
     
     }
-    vector<vector<float>>  Numpy:: ceil(vector<vector<float>> input) {
-    
-    }
-    vector<vector<float>>  Numpy::floor(vector<vector<float>> input) {
+    vector<vector<float>>  Numpy:: Ceil(vector<vector<float>> input) {
         vector <vector<float>> result(input.size());
         for (int i = 0; i < input.size(); i++) {
-            result.assign(i, floor(input[i]));
-           
+            result[i] = Ceil(input[i]);
         }
         return result;
     }
-    vector<float>  Numpy::floor(vector<float> input) {
+    vector<float> Numpy::Ceil(vector<float> input) {
+        vector <float> result(input.size());
+        for (int i = 0; i < input.size(); i++) {
+            result[i] = ceil(input[i]);
+        }
+        return result;
+    }
+    vector<vector<float>>  Numpy::Floor(vector<vector<float>> input) {
+        vector <vector<float>> result(input.size());
+        for (int i = 0; i < input.size(); i++) {
+            result[i] = Floor(input[i]);
+        }
+        return result;
+    }
+    vector<float>  Numpy::Floor(vector<float> input) {
         vector<float>result(input.size());
         for (int i = 0; i < input.size();i++) {
             result[i] = floor(input[i]);
         }
         return result;
     }
-    static vector<vector<float>> Numpy::max(vector<vector<float>> input, int value) {
-            
+    vector<vector<float>> Numpy::Max(vector<vector<float>> input, int value) {
+        vector<vector<float>>result(input.size());
+        for (int i = 0; i < input.size(); i++) {
+                result[i]  = Max(input[i], value);
+        }
+        return result;
     }
-
+    vector<float>  Numpy::Max(vector<float> input, int value) {
+        vector<float>result(input.size());
+        for (int i = 0; i < input.size(); i++) {
+            if (input[i] >= value) {
+                result[i] = input[i];
+            }
+            else {
+                result[i] = value;
+            }
+        }
+    }
 }
