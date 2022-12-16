@@ -137,4 +137,22 @@ public:
             result[i] = Rand(Size2,Size3);
         }
     }
+    static vector<int>shape(vector<int> value) {
+        vector<int>result(2);
+        result.push_back(value.size());
+        return result;
+    }
+    static vector<int>shape(vector<vector<int>> value) {
+        vector<int>result(2);
+        result.push_back(value.size());
+        result.push_back(value[0].size());
+        return result;
+    }
+    static vector<int>shape(vector<vector<vector<int>>> value) {
+        vector<int>result(3);
+        result.push_back(value.size());
+        result.push_back(value[0].size());
+        result.push_back(value[0][0].size());
+        return result;
+    }
 };

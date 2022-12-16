@@ -9,7 +9,10 @@ namespace MatrixLib
     {
     public:
         static vector<vector<int>> shape(vector<vector<float>> input);
-        static vector<vector<float>> zeros(vector<vector<float>> input);
+        static vector<float> zeros(int Size1);
+        static vector<vector<float>> zeros(int Size1, int Size2);
+        static vector<vector<vector<float>>> zeros(int Size1, int Size2, int Size3);
+
         static vector<vector<float>> arange(vector<vector<float>> input);
         static vector<vector<float>> Ceil(vector<vector<float>> input);
         static vector<float> Ceil(vector<float> input);
@@ -23,6 +26,8 @@ namespace MatrixLib
         static vector<float> Rand(int Size1);
         static vector<vector<float>> Rand(int Size1,int Size2);
         static vector<vector<vector<float>>> Rand(int Size1, int Size2,int Size3);
-
+        static vector<int> shape(vector<int> value);
+        static vector<int> shape(vector<vector<int>> value);
+        static vector<int> shape(vector<vector<vector<int>>> value);
     };
 }
