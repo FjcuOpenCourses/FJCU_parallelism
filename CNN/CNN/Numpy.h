@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace MathLibrary
+namespace MatrixLib
 {
     class Numpy
     {
@@ -15,10 +15,10 @@ namespace MathLibrary
         static vector<float> Ceil(vector<float> input);
         static vector<vector<float>> Floor(vector<vector<float>> input);
         static vector<float> Floor(vector<float> input);
+        static vector<vector<vector<float>>> Max(vector<vector<vector<float>>> input, int value);
         static vector<vector<float>> Max(vector<vector<float>> input,int value);
         static vector<float> Max(vector<float> input, int value);
         static int  sum(vector<vector<float>> input);
         static int  sum(vector<float> input);
-
     };
 }

@@ -23,7 +23,6 @@ vector<vector<float>> conv_(vector<vector<float>> img, vector<vector<float>> con
 	return conv_result;
 }
 
-<<<<<<< HEAD
 vector<vector<int>> conv(vector<vector<float>> input2D)
 {
     /*
@@ -33,15 +32,15 @@ vector<vector<int>> conv(vector<vector<float>> input2D)
         The conv() method saves the result of convolving the input by the filter bank in the layer_output attribute.
     */
 
-    /*  °Ñ¦Ò¥Î
+    /*  ï¿½Ñ¦Ò¥ï¿½
     * 
         int rows = 3;
         int columns = 4;
         vector<vector<int>> vec1( rows , vector<int> (columns));
 
-        ªì©l¤Æ«á
-        int rows = ans[0].size();  //¦C
-        int column = ans.size();   //¦æ
+        ï¿½ï¿½lï¿½Æ«ï¿½
+        int rows = ans[0].size();  //ï¿½C
+        int column = ans.size();   //ï¿½ï¿½
     */
     
     if (input2D.size() != 1 && input2D[0] != 1)
@@ -69,13 +68,6 @@ vector<vector<int>> conv(vector<vector<float>> input2D)
             raise ValueError('A filter must have an odd size. I.e. number of rows and columns must be odd.')
 
         self.layer_output = self.conv_(input2D, self.trained_weights)
-=======
-vector<vector<float>> conv(vector<vector<float>> img, vector<vector<float>> conv_filter)
-{
-	vector<vector<float>> convresult;
-
-	return convresult;
->>>>>>> 533f418721f9e30ce511a894e2ac28d7e8b40f88
 }
 
 vector<vector<vector<float>>> pooling(vector<vector<vector<float>>> feature_map, int size = 2, int stride = 2)

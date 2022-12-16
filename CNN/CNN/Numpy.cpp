@@ -8,24 +8,25 @@
 
 using namespace std;
 
-namespace MathLibrary
+class Numpy
 {
-    vector<vector<float>> Numpy:: zeros(vector<vector<float>> input)
+public:
+    static vector<vector<float>>  zeros(vector<vector<float>> input)
     {
         int ROW_COUNT = input.size();
         int COLUMN_COUNT = input[0].size();
 
-        vector<vector<float>> result(ROW_COUNT,vector<float>(COLUMN_COUNT));
+        vector<vector<float>> result(ROW_COUNT, vector<float>(COLUMN_COUNT));
         return result;
     }
 
-    vector<vector<float>>  Numpy:: arange(vector<vector<float>> input) {
+    static vector<vector<float>> arange(vector<vector<float>> input) {
         vector <vector<float>> result(input.size());
 
         return result;
     }
 
-    vector<vector<float>>  Numpy:: Ceil(vector<vector<float>> input) {
+    static vector<vector<float>>  Ceil(vector<vector<float>> input) {
         vector <vector<float>> result(input.size());
 #pragma omp parallel for
         for (int i = 0; i < input.size(); i++) {
@@ -35,7 +36,7 @@ namespace MathLibrary
         return result;
     }
 
-    vector<float> Numpy::Ceil(vector<float> input) {
+    static vector<float> Ceil(vector<float> input) {
         vector <float> result(input.size());
 #pragma omp parallel for
         for (int i = 0; i < input.size(); i++) {
@@ -45,7 +46,7 @@ namespace MathLibrary
         return result;
     }
 
-    vector<vector<float>>  Numpy::Floor(vector<vector<float>> input) {
+    static vector<vector<float>> Floor(vector<vector<float>> input) {
         vector <vector<float>> result(input.size());
 #pragma omp parallel for
         for (int i = 0; i < input.size(); i++) {
@@ -55,27 +56,36 @@ namespace MathLibrary
         return result;
     }
 
-    vector<float>  Numpy::Floor(vector<float> input) {
+    static vector<float> Floor(vector<float> input) {
         vector<float>result(input.size());
 #pragma omp parallel for
-        for (int i = 0; i < input.size();i++) {
+        for (int i = 0; i < input.size(); i++) {
             result[i] = floor(input[i]);
         }
 #pragma omp barrier
         return result;
     }
 
-    vector<vector<float>> Numpy::Max(vector<vector<float>> input, int value) {
+    static vector<vector<float>> Max(vector<vector<float>> input, int value) {
         vector<vector<float>>result(input.size());
 #pragma omp parallel for
         for (int i = 0; i < input.size(); i++) {
-                result[i]  = Max(input[i], value);
+            result[i] = Max(input[i], value);
+        }
+#pragma omp barrier
+        return result;
+    }
+    static vector<vector<vector<float>>> Max(vector<vector<vector<float>>> input, int value) {
+        vector<vector<vector<float>>>result(input.size());
+#pragma omp parallel for
+        for (int i = 0; i < input.size(); i++) {
+            result[i] = Max(input[i], value);
         }
 #pragma omp barrier
         return result;
     }
 
-    vector<float>  Numpy::Max(vector<float> input, int value) {
+    static vector<float>  Max(vector<float> input, int value) {
         vector<float>result(input.size());
 #pragma omp parallel for
         for (int i = 0; i < input.size(); i++) {
@@ -89,4 +99,4 @@ namespace MathLibrary
 #pragma omp barrier
         return result;
     }
-}
+};
