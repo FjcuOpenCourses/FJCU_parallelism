@@ -5,23 +5,16 @@
 #include <vector>
 #include "Numpy.h"
 #include <cmath>
-
+#include "Numpy.h"
 using namespace std;
-
-using namespace MathLibrary;
-
-vector<vector<float>> conv_(vector<vector<float>> img, vector<vector<float>> conv_filter)
-{
-	vector<vector<float>> conv_result;
-
-	vector<vector<int>> b;
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 3; j++) {
-			b[i].push_back(0);
-		}
-	}
-	return conv_result;
-}
+using namespace MatrixLib;
+class CNN {
+    vector<vector<float>> conv_(vector<vector<float>> img, vector<vector<float>> conv_filter)
+    {
+        vector<vector<float>> conv_result;
+        return conv_result;
+    }
+};
 
 vector<vector<int>> conv(vector<vector<float>> input2D)
 {
@@ -79,9 +72,8 @@ vector<vector<vector<float>>> pooling(vector<vector<vector<float>>> feature_map,
 
 vector<vector<vector<float>>> relu(vector<vector<vector<float>>> feature_map)
 {
-	vector<vector<vector<float>>> reluresult;
-
-	return reluresult;
+    vector<vector<vector<float>>> result = Numpy::Max(feature_map, 0);
+	return result;
 }
 
 int main()
