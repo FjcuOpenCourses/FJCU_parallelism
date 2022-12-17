@@ -25,16 +25,16 @@ Conv2D::Conv2D(int num_filters, int kernel_size, MaxPooling2D *previous_layer, s
 
 }
 
-Conv2D::Conv2D(int num_filters, int kernel_size, Input2D *previous_layer, string activation_function)
+/*Conv2D::Conv2D(int num_filters, int kernel_size, Input2D* previous_layer, string activation_function)
 {
-	/*
+	
 	num_filters: Number of filters in the convolution layer.
 	kernel_size : Kernel size of the filter.
 	previous_layer : A reference to the previous layer.
 	activation_function = None : The name of the activation function to be used in the conv layer.If None,
 						  then no activation function is applied besides the convolution operation.
 						  The activation function can be applied by a separate layer.
-	*/
+	
 
 	if (num_filters <= 0)
 		std::cout << "Number of filters cannot be <= 0. Please pass a valid value to the 'num_filters' parameter.\n";
@@ -73,10 +73,10 @@ Conv2D::Conv2D(int num_filters, int kernel_size, Input2D *previous_layer, string
 		this -> kernel_size,
 		this -> kernel_size,
 		this -> previous_layer.layer_output_size[-1])
-	*/
+	
 
 
-}
+}*/
 
 vector<vector<float>> Conv2D::conv(vector<vector<float>> input2D){
 		/*
