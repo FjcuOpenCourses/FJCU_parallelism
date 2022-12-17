@@ -14,8 +14,6 @@
 
 using namespace std;
 
-
-
  vector<float> Numpy::zeros(int Size1) {
      vector<float> result(Size1);
      return result;
