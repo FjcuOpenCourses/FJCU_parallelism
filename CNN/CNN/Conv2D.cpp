@@ -17,19 +17,19 @@ vector<vector<float>> Conv2D::conv(vector<vector<float>> input2D){
 		if (this -> initial_weights[0][0].size() > 1)		initial_weight_Dimension++;
 		if (this -> initial_weights[0][0][0].size() > 1)		initial_weight_Dimension++;
 		if (input2D_Dimension != initial_weight_Dimension - 1)                    // # Check if there is a match in the number of dimensions between the image and the filters.
-			cout << "Number of dimensions in the conv filter and the input do not match.\n";
+			std::cout << "Number of dimensions in the conv filter and the input do not match.\n";
 		if (input2D_Dimension > 2 || initial_weight_Dimension > 3)				  // # Check if number of image channels matches the filter depth.
 		{
 			if (input2D[0].size() != (this -> initial_weights[0][0][0].size()))
 			{
-				cout << "Number of channels in both the input and the filter must match.\n";
+				std::cout << "Number of channels in both the input and the filter must match.\n";
 			}
 		}
-		if ((this -> initial_weights[0].size()) != (this -> initial_weights[0][0][0].size()))
-			cout << "A filter must be a square matrix. I.e. number of rows and columns must match.\n";
-		if (this->initial_weights[0].size() % 2 == 0)
-			cout << "A filter must have an odd size. I.e. number of rows and columns must be odd.\n";
+		if ((this -> initial_weights[0].size()) != (this -> initial_weights[0][0].size())) // # Check if filter dimensions are equal.
+			std::cout << "A filter must be a square matrix. I.e. number of rows and columns must match.\n";
+		if (this->initial_weights[0].size() % 2 == 0)									   // # Check if filter diemnsions are odd.
+			std::cout << "A filter must have an odd size. I.e. number of rows and columns must be odd.\n";
 
-		this -> layer_output = this -> conv_(input2D, this -> trained_weights)
+		this -> layer_output = this -> conv_(input2D, this -> trained_weights);
 	}
 };
