@@ -127,15 +127,21 @@ public:
 
     static vector<vector<float>> Rand(int Size1, int Size2) {
         vector<vector<float>> result(Size1);
+#pragma omp parallel for
         for (int i = 0; i < result.size(); i++) {
             result[i] = Rand(Size2);
         }
+#pragma omp barrier
+        return result;
     }
     static vector<vector<vector<float>>> Rand(int Size1, int Size2, int Size3) {
         vector<vector<vector<float>>> result(Size1);
+#pragma omp parallel for
         for (int i = 0; i < result.size(); i++) {
             result[i] = Rand(Size2,Size3);
         }
+#pragma omp barrier
+        return result;
     }
 
     static int shape_num(vector<int> value) {
