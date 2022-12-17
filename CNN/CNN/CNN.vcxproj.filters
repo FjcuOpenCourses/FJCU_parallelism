@@ -30,31 +30,25 @@
     <ClCompile Include="Conv2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Class_Input2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="class_Conv2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="class_AveragePooling2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="class_MaxPooling2D.cpp">
+    <ClCompile Include="MaxPooling2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="class_ReLU.cpp">
+    <ClCompile Include="ReLU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="class_Sigmoid.cpp">
+    <ClCompile Include="Sigmoid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="class_Flatten.cpp">
+    <ClCompile Include="Flatten.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="class_Dense.cpp">
+    <ClCompile Include="Dense.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="class_Model.cpp">
+    <ClCompile Include="Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,31 +65,25 @@
     <ClInclude Include="Conv2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Class_Input2D.h">
+    <ClInclude Include="AveragePooling2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="class_Conv2D.h">
+    <ClInclude Include="MaxPooling2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="class_AveragePooling2D.h">
+    <ClInclude Include="ReLU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="class_MaxPooling2D.h">
+    <ClInclude Include="Sigmoid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="class_ReLU.h">
+    <ClInclude Include="Flatten.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="class_Sigmoid.h">
+    <ClInclude Include="Dense.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="class_Flatten.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="class_Dense.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="class_Model.h">
+    <ClInclude Include="Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

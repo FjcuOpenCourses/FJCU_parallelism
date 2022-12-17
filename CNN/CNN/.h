@@ -1,5 +1,5 @@
 #pragma once
-class class_Dense
+class Conv2D
 {
 };
 
