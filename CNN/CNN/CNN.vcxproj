@@ -154,11 +154,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CNN.cpp" />
+    <ClCompile Include="Conv2D.cpp" />
+    <ClCompile Include="Input2D.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Numpy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNN.h" />
+    <ClInclude Include="Conv2D.h" />
+    <ClInclude Include="Input2D.h" />
     <ClInclude Include="Numpy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
