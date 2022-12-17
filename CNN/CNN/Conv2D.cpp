@@ -2,24 +2,11 @@
 #include <iostream>
 #include <vector>
 
-class conv2D
-{
-	// Implementing the convolution layer.
+Conv2D::Conv2D(){
 
-	conv2D ()		// conv2D construct
-	{
-		/*
-			 Convolves the input (input2D) by a single filter (conv_filter).
-        
-			input2D: The input to be convolved by a single filter.
-			conv_filter: The filter convolving the input.
-        
-			Returns the result of convolution.
-		*/
-	}
+}
 
-	vector<vector<float>> conv (vector<vector<float>> input2D)
-	{
+vector<vector<float>> Conv2D::conv(vector<vector<float>> input2D){
 		/*
 			Convolves the input (input2D) by a filter bank.
         
