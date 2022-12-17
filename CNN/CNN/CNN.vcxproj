@@ -153,7 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="class_AveragePooling2D.cpp" />
+    <ClCompile Include="AveragePooling2D.cpp" />
     <ClCompile Include="Dense.cpp" />
     <ClCompile Include="Flatten.cpp" />
     <ClCompile Include="MaxPooling2D.cpp" />
