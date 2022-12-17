@@ -1,27 +1,27 @@
-#include "Conv2D.h"
-#include <iostream>
-#include <vector>
-#include "AveragePooling2D.h"
+#include	"Conv2D.h"
+#include	<iostream>
+#include	<vector>
+#include	"AveragePooling2D.h"
 #include	"Input2D.h"
 
 using namespace std;
 
-Conv2D::Conv2D(int num_filters, int kernel_size, Input2D previous_layer, string activation_function){
+Conv2D::Conv2D(int num_filters, int kernel_size, Input2D *previous_layer, string activation_function){
 	this->num_filters = num_filters;
 	this->kernel_size = kernel_size;
-	this->previous_layer = previous_layer;
+	this->previous_input_layer = previous_layer;
 
 }
-Conv2D::Conv2D(int num_filters, int kernel_size, AveragePooling2D previous_layer, string activation_function) {
+Conv2D::Conv2D(int num_filters, int kernel_size, AveragePooling2D *previous_layer, string activation_function) {
 	this->num_filters = num_filters;
 	this->kernel_size = kernel_size;
-	this->previous_layer = previous_layer;
+	this->previous_average_pooling_layer = previous_layer;
 
 }
-Conv2D::Conv2D(int num_filters, int kernel_size, MaxPooling2D previous_layer, string activation_function) {
+Conv2D::Conv2D(int num_filters, int kernel_size, MaxPooling2D *previous_layer, string activation_function) {
 	this->num_filters = num_filters;
 	this->kernel_size = kernel_size;
-	this->previous_layer = previous_layer;
+	this->previous_max_pooling_layer = previous_layer;
 
 }
 

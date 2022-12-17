@@ -2,12 +2,13 @@
 #include "ReLU.h"
 #include "Numpy.h"
 
-MaxPooling2D::MaxPooling2D(int pool_size, ReLU previous_layer, int stride) {
+MaxPooling2D::MaxPooling2D(int pool_size, ReLU *previous_layer, int stride) {
 	this->pool_size = pool_size;
 	this->previous_layer = previous_layer;
 	this->stride = stride;
 }
-void MaxPooling2D::max_pooling(Input2D input2D) {
+void MaxPooling2D::max_pooling(Input2D *input2D) {
+
     int size1 = (Numpy::shape(input2D, 0) - size + 1) / stride + 1;
     int size2 = (Numpy::shape(input2D, 1) - size + 1) / stride + 1;
     int size3 = Numpy::shape(input2D, -1);
@@ -26,5 +27,3 @@ void MaxPooling2D::max_pooling(Input2D input2D) {
     }
     return pool_out;
 }
-
-

@@ -8,5 +8,5 @@ public:
 	Input2D(vector<int> inputShape);
 private:
 	vector<int> input_shape;
-	vector<int>layer_output_size;
+	vector<int>	layer_input_size, layer_output_size;
 };
