@@ -18,11 +18,11 @@ class Conv2D
 		vector<int> getLayer_output_size();
 
 	private:
-		vector<vector<vector<vector<float>>>> initial_weights;
-		vector<vector<vector<vector<float>>>> trained_weights;
-		Input2D previous_layer;
 		int kernel_size;
 		int num_filters;
+		Input2D previous_layer;
+		vector<vector<vector<vector<float>>>> initial_weights;
+		vector<vector<vector<vector<float>>>> trained_weights;
 		vector<vector<vector<vector<int>>>> filter_bank_size;
 		vector<int> layer_input_size;
 		vector<int> layer_output_size;
