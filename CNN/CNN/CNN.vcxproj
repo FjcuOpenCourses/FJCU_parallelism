@@ -153,10 +153,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="class_AveragePooling2D.cpp" />
+    <ClCompile Include="class_Conv2D.cpp" />
+    <ClCompile Include="class_Dense.cpp" />
+    <ClCompile Include="class_Flatten.cpp" />
+    <ClCompile Include="Class_Input2D.cpp" />
+    <ClCompile Include="class_MaxPooling2D.cpp" />
+    <ClCompile Include="class_Model.cpp" />
+    <ClCompile Include="class_ReLU.cpp" />
+    <ClCompile Include="class_Sigmoid.cpp" />
     <ClCompile Include="CNN.cpp" />
+    <ClCompile Include="Conv2D.cpp" />
+    <ClCompile Include="Input2D.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Numpy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="class_AveragePooling2D.h" />
+    <ClInclude Include="class_Conv2D.h" />
+    <ClInclude Include="class_Dense.h" />
+    <ClInclude Include="class_Flatten.h" />
+    <ClInclude Include="Class_Input2D.h" />
+    <ClInclude Include="class_MaxPooling2D.h" />
+    <ClInclude Include="class_Model.h" />
+    <ClInclude Include="class_ReLU.h" />
+    <ClInclude Include="class_Sigmoid.h" />
+    <ClInclude Include="CNN.h" />
+    <ClInclude Include="Conv2D.h" />
+    <ClInclude Include="Input2D.h" />
     <ClInclude Include="Numpy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
