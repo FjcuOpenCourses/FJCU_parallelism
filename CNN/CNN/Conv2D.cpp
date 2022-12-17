@@ -2,10 +2,6 @@
 #include <iostream>
 #include <vector>
 
-Conv2D::Conv2D(){
-
-}
-
 vector<vector<float>> Conv2D::conv(vector<vector<float>> input2D){
 		/*
 			Convolves the input (input2D) by a filter bank.
