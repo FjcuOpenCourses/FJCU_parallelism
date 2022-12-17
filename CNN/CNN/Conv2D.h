@@ -17,5 +17,4 @@ class Conv2D
 		vector<vector<vector<vector<int>>>> filter_bank_size;
 		vector<vector<vector<int>>> layer_input_size;
 		vector<vector<vector<int>>> layer_output_size;
-
 };
