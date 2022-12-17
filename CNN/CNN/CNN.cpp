@@ -44,7 +44,6 @@ vector<vector<vector<float>>> CNN::pooling(vector<vector<vector<float>>> feature
             }
         }
     }        
-
 	return pool_out;
 }
 void CNN::setL1_filter(vector<vector<vector<float>>> value) {

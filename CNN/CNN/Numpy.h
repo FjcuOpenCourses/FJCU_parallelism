@@ -26,7 +26,7 @@ class Numpy
         static int  sum(vector<vector<vector<float>>>  input);
 
 
-        static vector<float> Rand(int Size1);
+        static vector<float> Rand(size_t Size1);
         static vector<vector<float>> Rand(int Size1,int Size2);
         static vector<vector<vector<float>>> Rand(int Size1, int Size2,int Size3);
         static vector<vector<vector<vector<float>>>> Rand(int Size1, int Size2, int Size3,int Size4);

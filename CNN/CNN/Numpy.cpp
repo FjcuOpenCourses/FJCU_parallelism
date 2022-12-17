@@ -99,16 +99,7 @@ using namespace std;
 #pragma omp barrier
         return result;
     }
-
-    vector<float> Numpy::Rand(int Size1) {
-
-
-        srand(unsigned(time(nullptr)));
-        vector<int> v(Size1);
-        std::generate(v.begin(), v.end(), rand);
-
-    }
-    vector<float> Numpy::Rand(size_t size)
+    vector<float> Numpy::Rand(size_t Size1)
     {
         using value_type = float;
         // We use static in order to instantiate the random engine
@@ -119,7 +110,7 @@ using namespace std;
             numeric_limits<value_type>::max());
         static default_random_engine generator;
 
-        vector<value_type> data(size);
+        vector<value_type> data(Size1);
         generate(data.begin(), data.end(), []() { return distribution(generator); });
         return data;
         //https://stackoverflow.com/questions/21516575/fill-a-vector-with-random-numbers-c
