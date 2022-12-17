@@ -14,8 +14,6 @@
 
 using namespace std;
 
-
-
  vector<float> Numpy::zeros(int Size1) {
      vector<float> result(Size1);
      return result;
@@ -169,7 +167,7 @@ vector<vector<vector<vector<float>>>> Numpy::Rand(int Size1, int Size2, int Size
         result.push_back(value.size());
         return result;
     }
-    vector<int> Numpy::shape(vector<vector<float>> value) {
+    vector<int> Numpy::shape(vector<vector<float>> *value) {
         vector<int>result;
         result.push_back(value.size());
         result.push_back(value[0].size());

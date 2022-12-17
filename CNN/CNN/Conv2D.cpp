@@ -1,6 +1,29 @@
-#include "Conv2D.h"
-#include <iostream>
-#include <vector>
+#include	"Conv2D.h"
+#include	<iostream>
+#include	<vector>
+#include	"AveragePooling2D.h"
+#include	"Input2D.h"
+
+using namespace std;
+
+Conv2D::Conv2D(int num_filters, int kernel_size, Input2D *previous_layer, string activation_function){
+	this->num_filters = num_filters;
+	this->kernel_size = kernel_size;
+	this->previous_input_layer = previous_layer;
+
+}
+Conv2D::Conv2D(int num_filters, int kernel_size, AveragePooling2D *previous_layer, string activation_function) {
+	this->num_filters = num_filters;
+	this->kernel_size = kernel_size;
+	this->previous_average_pooling_layer = previous_layer;
+
+}
+Conv2D::Conv2D(int num_filters, int kernel_size, MaxPooling2D *previous_layer, string activation_function) {
+	this->num_filters = num_filters;
+	this->kernel_size = kernel_size;
+	this->previous_max_pooling_layer = previous_layer;
+
+}
 
 vector<vector<float>> Conv2D::conv(vector<vector<float>> input2D){
 		/*
@@ -33,3 +56,12 @@ vector<vector<float>> Conv2D::conv(vector<vector<float>> input2D){
 		this -> layer_output = this -> conv_(input2D, this -> trained_weights);
 	}
 };
+			self.layer_output = self.conv_(input2D, self.trained_weights)
+		*/
+}
+vector<int> Conv2D::getLayer_input_size() {
+	return this->layer_input_size;
+}
+vector<int> Conv2D::getLayer_output_size() {
+	return this->layer_output_size;
+}
