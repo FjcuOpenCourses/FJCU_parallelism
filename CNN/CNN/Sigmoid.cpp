@@ -1,7 +1,7 @@
 #include "Sigmoid.h"
 #include "Numpy.h"
 
-Sigmoid::Sigmoid(Conv2D previous_layer) {
+Sigmoid::Sigmoid(Conv2D *previous_layer) {
     //previous_layer: Reference to the previous layer.  
     // A reference to the layer that preceeds the current layer in the network architecture.
     this->previous_layer = previous_layer;

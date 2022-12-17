@@ -18,7 +18,9 @@ vector<vector<float>> CNN::conv_(vector<vector<float>> img, vector<vector<float>
     vector<vector<float>> conv_result;
     return conv_result;
 }
-vector<vector<vector<float>>> CNN::relu(vector<vector<vector<float>>> feature_map) { return  Numpy::Max(feature_map, 0); }
+vector<vector<vector<float>>> CNN::relu(vector<vector<vector<float>>> feature_map) {
+    return  Numpy::Max(feature_map, 0); 
+}
 
 vector<vector<vector<float>>> CNN::conv(vector<vector<float>> img, vector<vector<vector<float>>> conv_filter)
 {
