@@ -1,12 +1,9 @@
-//import skimage.data
-//#include "matplotlibcpp.h"
 #include "Numpy.h"
 #include "CNN.h";
 #include <iostream>
 #include <fstream>
 #include <vector>
 using namespace std;
-//namespace plt = matplotlibcpp;
 
 vector<vector<vector<float>>> First_conv_layer() {
  //First conv layer
