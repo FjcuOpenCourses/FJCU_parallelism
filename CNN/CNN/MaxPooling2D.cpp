@@ -1,1 +1,1 @@
-#include "class_MaxPooling2D.h"
+#include "MaxPooling2D.h"

@@ -1,5 +1,5 @@
 #pragma once
-class class_Sigmoid
+class Sigmoid
 {
 };
 
