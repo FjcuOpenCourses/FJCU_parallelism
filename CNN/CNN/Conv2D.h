@@ -53,7 +53,8 @@ class Conv2D
 			this -> filter_bank_size = (this -> num_filters,
 				this -> kernel_size,
 				this -> kernel_size,
-				this -> previous_layer.layer_output_size[-1])*/
+				this -> previous_layer.layer_output_size[-1])
+			*/
 
 
 		}

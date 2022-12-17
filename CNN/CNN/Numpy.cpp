@@ -37,7 +37,7 @@ using namespace std;
 
  vector<int> Numpy:: arange(int start, int end, int stept) {
         vector<int> result;
-        for (int i = 0; i < end;i+=stept) {
+        for (int i = start; i < end;i+=stept) {
             result.push_back(i);
         }
         return result;
