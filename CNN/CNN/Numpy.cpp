@@ -15,13 +15,25 @@
 using namespace std;
 
 
- vector<vector<float>>  Numpy::zeros(vector<vector<float>> input){
-        int ROW_COUNT = input.size();
-        int COLUMN_COUNT = input[0].size();
 
-        vector<vector<float>> result(ROW_COUNT, vector<float>(COLUMN_COUNT));
-        return result;
-}
+ vector<float> Numpy::zeros(int Size1) {
+     vector<float> result(Size1);
+     return result;
+ }
+ vector<vector<float>> Numpy::zeros(int Size1, int Size2) {
+     vector<vector<float>> result(Size1);
+     for (int i = 0; i < result.size();i++) {
+         result[i] = Numpy::zeros(Size2);
+     }
+     return result;
+ }
+ vector<vector<vector<float>>> Numpy::zeros(int Size1, int Size2, int Size3) {
+     vector<vector<vector<float>>> result(Size1);
+     for (int i = 0; i < result.size(); i++) {
+         result[i] = Numpy::zeros(Size2,Size3);
+     }
+     return result;
+ }
 
  vector<int> Numpy:: arange(int start, int end, int stept) {
         vector<int> result;
