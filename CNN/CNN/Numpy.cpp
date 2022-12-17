@@ -43,7 +43,7 @@ using namespace std;
 
  vector<float> Numpy::arange(float start, float end, float stept) {
      vector<float> result;
-     for (int i = float; i < end; i += stept) {
+     for (int i = start; i < end; i += stept) {
          result.push_back(i);
      }
      return result;
