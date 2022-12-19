@@ -24,11 +24,6 @@ class Conv2D
 		AveragePooling2D	*previous_average_pooling_layer;
 		MaxPooling2D	*previous_max_pooling_layer;
 
-		vector<int> filter_bank_size;
-		vector<float> initial_weights;
-		vector<vector<vector<int>>> layer_input_size;
-		vector<vector<vector<int>>> layer_output_size;
-		vector<vector<vector<vector<float>>>> trained_weights;
-		vector<vector<vector<vector<int>>>> filter_bank_size;
-		vector<int>	layer_input_size, layer_output_size;
+		vector<int>	layer_input_size, layer_output_size, filter_bank_size;
+		vector<vector<vector<vector<float>>>> initial_weights, trained_weights;
 };

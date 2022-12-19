@@ -3,6 +3,9 @@
 #include	<vector>
 #include	"AveragePooling2D.h"
 #include	"Input2D.h"
+#include	<stdio.h>
+#include	<stdlib.h> /* 亂數相關函數 */
+#include	<time.h>   /* 時間相關函數 */
 
 using namespace std;
 
@@ -29,12 +32,12 @@ Conv2D::Conv2D(int num_filters, int kernel_size, Input2D* previous_layer, string
 		// # Kernel size of each filter.
 		this->kernel_size = kernel_size;
 	// # Validating the activation function
-		if (activation_function == NULL) {
-			this->acti
+		if (activation_function.empty()) {
+			this->activation = NULL;
 		}
-		this->activation = None;
-	else if (activation_function == "relu")
-		this -> activation = relu;
+		if(activation_function._Equal("relu")) {
+			this->activation = relu;
+		}
 	else if (activation_function == "sigmoid")
 		this -> activation = sigmoid;
 	else if (activation_function == "softmax") :
@@ -63,10 +66,39 @@ Conv2D::Conv2D(int num_filters, int kernel_size, Input2D* previous_layer, string
 	seed = (unsigned)time(NULL); // 取得時間序列
 	srand(seed);				 // 以時間序列當亂數種子
 	// # Initializing the filters of the conv layer.
-	for (int i = 0; i < filter_bank_size)
-	this -> initial_weights = numpy.random.uniform(low = -0.1,
+	for (int i = 0; i < filter_bank_size; i++)
+	{
+		initial_weights[i] = (rand() % 2 / 10) - 0.1;
+	}
+	/*this->initial_weights = numpy.random.uniform(low = -0.1,
 		high = 0.1,
-		size = self.filter_bank_size);
+		size = self.filter_bank_size);*/
+
+	// # The trained filters of the conv layer.Only assigned a value after the network is trained(i.e.the train_network() function completes).
+	// # Just initialized to be equal to the initial filters
+	for (int i = 0; i < initial_weights.size(); i++)
+	{
+		trained_weights[i] = initial_weights[i];
+	}
+	// self.trained_weights = self.initial_weights.copy()
+
+	// # Size of the input to the layer.
+	for (int i = 0; i < this -> layer_output_size; i++)
+	{
+		this -> layer_input_size[i] = this -> previous_layer.layer_output_size[i];
+	}
+	// self.layer_input_size = self.previous_layer.layer_output_size
+
+	// # Size of the output from the layer.
+	// # Later, it must conider strides and paddings
+	layer_output_size = 
+	
+	// self.layer_output_size = (self.previous_layer.layer_output_size[0] - self.kernel_size + 1,
+		// self.previous_layer.layer_output_size[1] - self.kernel_size + 1,
+		// num_filters)
+
+	// # The layer_output attribute holds the latest output from the layer.
+	// self.layer_output = None
 }
 Conv2D::Conv2D(int num_filters, int kernel_size, AveragePooling2D *previous_layer, string activation_function) {
 	this->num_filters = num_filters;
