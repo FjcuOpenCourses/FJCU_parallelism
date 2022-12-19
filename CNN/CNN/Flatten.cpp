@@ -1,6 +1,8 @@
 #include	"Flatten.h"
 #include	"AveragePooling2D.h"
 
+using namespace std;
+
 Flatten::Flatten(AveragePooling2D *previous_layer) {
 	this->previous_layer = previous_layer;
 	//Size of the input to the layer.

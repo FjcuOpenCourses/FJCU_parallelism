@@ -155,32 +155,40 @@
   <ItemGroup>
     <ClCompile Include="ActivationFunction.cpp" />
     <ClCompile Include="AveragePooling2D.cpp" />
+    <ClCompile Include="BaseLayer.cpp" />
     <ClCompile Include="Dense.cpp" />
     <ClCompile Include="Flatten.cpp" />
     <ClCompile Include="MaxPooling2D.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ReLU.cpp" />
+    <ClCompile Include="ReLUFunction.cpp" />
     <ClCompile Include="Sigmoid.cpp" />
     <ClCompile Include="CNN.cpp" />
     <ClCompile Include="Conv2D.cpp" />
     <ClCompile Include="Input2D.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Numpy.cpp" />
+    <ClCompile Include="SigmoidFunction.cpp" />
+    <ClCompile Include="SoftmaxFunction.cpp" />
     <ClCompile Include="Train.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActivationFunction.h" />
     <ClInclude Include="AveragePooling2D.h" />
+    <ClInclude Include="BaseLayer.h" />
     <ClInclude Include="Dense.h" />
     <ClInclude Include="Flatten.h" />
     <ClInclude Include="MaxPooling2D.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ReLU.h" />
+    <ClInclude Include="ReLUFunction.h" />
     <ClInclude Include="Sigmoid.h" />
     <ClInclude Include="CNN.h" />
     <ClInclude Include="Conv2D.h" />
     <ClInclude Include="Input2D.h" />
     <ClInclude Include="Numpy.h" />
+    <ClInclude Include="SigmoidFunction.h" />
+    <ClInclude Include="SoftmaxFunction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

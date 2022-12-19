@@ -2,7 +2,7 @@
 #include "Conv2D.h"
 using namespace std;
 
-class Sigmoid
+class Sigmoid :public BaseLayer
 {
 public:
 	Sigmoid(Conv2D *previous_layer);

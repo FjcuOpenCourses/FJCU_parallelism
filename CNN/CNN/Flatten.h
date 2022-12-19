@@ -1,7 +1,11 @@
 #pragma once
-#include "AveragePooling2D.h"
+#include	<vector>
 
-class Flatten
+class BaseLayer;
+class AveragePooling2D;
+using namespace std;
+
+class Flatten :public BaseLayer
 {
 public:
 	Flatten(AveragePooling2D *previous_layer);
