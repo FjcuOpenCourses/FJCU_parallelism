@@ -50,14 +50,11 @@ Conv2D::Conv2D(int num_filters, int kernel_size, Input2D* previous_layer, string
 	this->previous_layer = previous_layer;
 
 	// # A reference to the bank of filters.
-	/*
 	this -> filter_bank_size = (this -> num_filters,
 		this -> kernel_size,
 		this -> kernel_size,
 		this -> previous_layer.layer_output_size[-1])
-	*/
-
-
+	
 
 }
 Conv2D::Conv2D(int num_filters, int kernel_size, AveragePooling2D *previous_layer, string activation_function) {
@@ -105,9 +102,7 @@ vector<vector<float>> Conv2D::conv(vector<vector<float>> input2D){
 		this -> layer_output = this -> conv_(input2D, this -> trained_weights);
 	}
 };
-			self.layer_output = self.conv_(input2D, self.trained_weights)
-		*/
-}
+
 vector<int> Conv2D::getLayer_input_size() {
 	return this->layer_input_size;
 }
