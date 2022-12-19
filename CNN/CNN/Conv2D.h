@@ -20,6 +20,7 @@ class Conv2D
 		int num_filters;
 		string activation;
 		string activation_function;
+		//Input2D* previos_layer;
 		Input2D *previous_input_layer;
 		AveragePooling2D	*previous_average_pooling_layer;
 		MaxPooling2D	*previous_max_pooling_layer;
