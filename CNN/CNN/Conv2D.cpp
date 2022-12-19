@@ -91,13 +91,15 @@ Conv2D::Conv2D(int num_filters, int kernel_size, Input2D* previous_layer, string
 
 	// # Size of the output from the layer.
 	// # Later, it must conider strides and paddings
-	layer_output_size = 
-	
+	this -> layer_output_size = this -> previous_layer.layer_output_size[0] - this -> kernel_size + 1,
+		this -> previous_layer.layer_output_size[0] - this -> kernel_size + 1,
+		num_filters);
 	// self.layer_output_size = (self.previous_layer.layer_output_size[0] - self.kernel_size + 1,
 		// self.previous_layer.layer_output_size[1] - self.kernel_size + 1,
 		// num_filters)
 
 	// # The layer_output attribute holds the latest output from the layer.
+	this -> layer_output = None;
 	// self.layer_output = None
 }
 Conv2D::Conv2D(int num_filters, int kernel_size, AveragePooling2D *previous_layer, string activation_function) {
