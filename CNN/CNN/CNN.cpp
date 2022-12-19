@@ -14,7 +14,7 @@ CNN::CNN() {
 
 
 }
-vector<vector<float>> CNN::conv_(vector<vector<float>> input2D, vector<vector<float>> conv_filter)
+vector<vector<float>> CNN::conv_(vector<vector<vector<float>>> input2D, vector<vector<vector<vector<float>>>> conv_filter)
 {
     float input2D_row = (float)input2D.size(), input2D_col = (float)input2D[0].size();                          //row = 1, cols = 0;
     float conv_filter_row = (float)conv_filter.size(), conv_filter_col = (float)conv_filter[0].size();       //row = 1, cols = 0;
@@ -22,27 +22,31 @@ vector<vector<float>> CNN::conv_(vector<vector<float>> input2D, vector<vector<fl
     vector<vector<vector<float>>> result = Numpy::zeros(input2D_col, input2D_row, conv_filter_col);     //result
     vector<vector<float>> conv_result;
 
-    //Numpy::shape(input2D, 0) = (float)input2D[0].size();              //??uncertain 
+   //Numpy::shape(input2D, 0) = (float)input2D[0].size();              //??uncertain 
 
-    vector<float> arange1, arange2;
+    //vector<float> arange1, arange2;
     vector<float> floor;
 
+    float arange1, arange2;
     float filter_bank_size[4];
     float curr_region[1][1], curr_result[1][1];
 
-    arange1 = Numpy::arange(filter_bank_size[1] / 2, Numpy::shape(input2D, 0) - filter_bank_size[1] / 2 + 1);
-    arange2 = Numpy::arange(filter_bank_size[1] / 2, Numpy::shape(input2D, 1) - filter_bank_size[1] / 2 + 1);
+   /* arange1 = Numpy::arange(filter_bank_size[1] / 2, Numpy::shape(input2D, 0) - filter_bank_size[1] / 2 + 1);
+    arange2 = Numpy::arange(filter_bank_size[1] / 2, Numpy::shape(input2D, 1) - filter_bank_size[1] / 2 + 1);*/
+    
+    arange1 = Numpy::shape(input2D, 0) - filter_bank_size[1] / 2 + 1;
+    arange2 = Numpy::shape(input2D, 1) - filter_bank_size[1] / 2 + 1;
+
     floor[0] = filter_bank_size[1] / 2.0;
 
 
-
-    for (float r = 0; r < arange1; r++)
+    for (float r = floor[0]; r < arange1; r++)
     {
-        for (float c = 0; c < arange2; c++)
+        for (float c = floor[0]; c < arange2; c++)
         {
             if (input2D.size() == 2)
             {
-                curr_region[r][c] = input2D[r - Numpy::Floor(floor):r + Numpy::Ceil(floor),
+                curr_region[int(r)int(c)] = input2D[int(r) - Numpy::Floor(floor):r + Numpy::Ceil(floor),
                     c - Numpy::Floor(floor)) :c + Numpy::Ceil(floor)];
 
             }
@@ -56,7 +60,7 @@ vector<vector<float>> CNN::conv_(vector<vector<float>> input2D, vector<vector<fl
     for (float filter_idx = 0; filter_idx < conv_filter_col; filter_idx++)
     {
         curr_result = curr_region * conv_filter[filter_idx];
-        conv_sum = numpy.sum(curr_result);    //¯x°}¨D©M
+        conv_sum = Numpy::sum(curr_result);   
 
         if (activation == NULL)
         {
