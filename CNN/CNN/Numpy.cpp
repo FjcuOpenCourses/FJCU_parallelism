@@ -49,6 +49,14 @@ using namespace std;
      return result;
  }
 
+ vector<float> Numpy::arange(float start, float end) {
+     vector<float> result;
+     for (float i = start; i < end; i++) {
+         result.push_back(i);
+     }
+     return result;
+ }
+
     vector<vector<float>>  Numpy::Ceil(vector<vector<float>> input) {
         vector <vector<float>> result(input.size());
 #pragma omp parallel for

@@ -14,12 +14,13 @@ CNN::CNN() {
 
 
 }
-vector<vector<float>> CNN::conv_(vector<vector<float>> img, vector<vector<float>> conv_filter)
+vector<vector<float>> CNN::conv_(vector<vector<float>> input2D, vector<vector<float>> conv_filter)
 {
     float input2D_row = (float)input2D.size(), input2D_col = (float)input2D[0].size();                          //row = 1, cols = 0;
     float conv_filter_row = (float)conv_filter.size(), conv_filter_col = (float)conv_filter[0].size();       //row = 1, cols = 0;
 
     vector<vector<vector<float>>> result = Numpy::zeros(input2D_col, input2D_row, conv_filter_col);     //result
+    vector<vector<float>> conv_result;
 
     //Numpy::shape(input2D, 0) = (float)input2D[0].size();              //??uncertain 
 
@@ -55,15 +56,21 @@ vector<vector<float>> CNN::conv_(vector<vector<float>> img, vector<vector<float>
     for (float filter_idx = 0; filter_idx < conv_filter_col; filter_idx++)
     {
         curr_result = curr_region * conv_filter[filter_idx];
-        conv_sum = mat sum(curr_result);    //矩陣求和
+        conv_sum = numpy.sum(curr_result);    //矩陣求和
 
-
+        if (activation == NULL)
+        {
+            result[r][c][filter_idx] = conv_sum;
+        }
+        else
+        {
+            result[r][c][filter_idx] = activation(conv_sum);
+        }
     }
 
-    //return conv_result;
-
-    //vector<vector<float>> conv_result;
-    //return conv_result;
+    conv_result = result[(filter_bank_size[1] / 2.0) : Numpy::shape(result, 0) - (filter_bank_size[1] / 2.0)][(filter_bank_size[1] / 2.0) : Numpy::shape(result, 1) - (filter_bank_size[1] / 2.0)][:];
+    
+    return conv_result;
 }
 vector<vector<vector<float>>> CNN::relu(vector<vector<vector<float>>> feature_map) {
     return  Numpy::Max(feature_map, 0); 
