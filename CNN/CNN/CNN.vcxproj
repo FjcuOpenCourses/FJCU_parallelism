@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActivationFunction.cpp" />
     <ClCompile Include="AveragePooling2D.cpp" />
     <ClCompile Include="Dense.cpp" />
     <ClCompile Include="Flatten.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Train.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActivationFunction.h" />
     <ClInclude Include="AveragePooling2D.h" />
     <ClInclude Include="Dense.h" />
     <ClInclude Include="Flatten.h" />
