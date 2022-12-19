@@ -16,21 +16,23 @@ Conv2D::Conv2D(int num_filters, int kernel_size, Input2D* previous_layer, string
 						  then no activation function is applied besides the convolution operation.
 						  The activation function can be applied by a separate layer.
 	*/
-	
+		if (num_filters <= 0) {
+			std::cout << "Number of filters cannot be <= 0. Please pass a valid value to the 'num_filters' parameter.\n";
+			return;
+		}
+		this->num_filters = num_filters;
 
-	if (num_filters <= 0)
-		std::cout << "Number of filters cannot be <= 0. Please pass a valid value to the 'num_filters' parameter.\n";
-	// # Number of filters in the conv layer.
-	this->num_filters = num_filters;
-
-	if (kernel_size <= 0)
-		std::cout << "The kernel size cannot be <= 0. Please pass a valid value to the 'kernel_size' parameter.\n";
-	// # Kernel size of each filter.
-	this->kernel_size = kernel_size;
-
+		if (kernel_size <= 0) {
+			std::cout << "The kernel size cannot be <= 0. Please pass a valid value to the 'kernel_size' parameter.\n";
+			return;
+		}
+		// # Kernel size of each filter.
+		this->kernel_size = kernel_size;
 	// # Validating the activation function
-	if (activation_function == None)
-		this -> activation = None;
+		if (activation_function == NULL) {
+			this->acti
+		}
+		this->activation = None;
 	else if (activation_function == "relu")
 		this -> activation = relu;
 	else if (activation_function == "sigmoid")
