@@ -30,32 +30,41 @@ Conv2D::Conv2D(int num_filters, int kernel_size, Input2D* previous_layer, string
 
 	// # Validating the activation function
 	if (activation_function == None)
-		this->activation = None;
+		this -> activation = None;
 	else if (activation_function == "relu")
-		this->activation = relu;
+		this -> activation = relu;
 	else if (activation_function == "sigmoid")
-		this->activation = sigmoid;
+		this -> activation = sigmoid;
 	else if (activation_function == "softmax") :
 		cout << "The softmax activation function cannot be used in a conv layer.\n";
 	else
 		cout << "The specified activation function " << activation_function << " is not among the supported activation functions " << supported_activation_functions << ".Please use one of the supported functions.\n";
 
 	// # The activation function used in the current layer.
-	this->activation_function = activation_function;
+	this -> activation_function = activation_function;
 
 
 	if (previous_layer == None)
 		cout << "The previous layer cannot be of Type 'None'. Please pass a valid layer to the 'previous_layer' parameter.\n";
 	// # A reference to the layer that preceeds the current layer in the network architecture.
-	this->previous_layer = previous_layer;
+	this -> previous_layer = previous_layer;
 
 	// # A reference to the bank of filters.
 	this -> filter_bank_size = (this -> num_filters,
 		this -> kernel_size,
 		this -> kernel_size,
-		this -> previous_layer.layer_output_size[-1])
+		this -> previous_layer.layer_output_size[-1]);
 	
 
+
+	unsigned seed;
+	seed = (unsigned)time(NULL); // 取得時間序列
+	srand(seed);				 // 以時間序列當亂數種子
+	// # Initializing the filters of the conv layer.
+	for (int i = 0; i < filter_bank_size)
+	this -> initial_weights = numpy.random.uniform(low = -0.1,
+		high = 0.1,
+		size = self.filter_bank_size);
 }
 Conv2D::Conv2D(int num_filters, int kernel_size, AveragePooling2D *previous_layer, string activation_function) {
 	this->num_filters = num_filters;
