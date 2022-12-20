@@ -45,4 +45,7 @@ class Numpy
         static int shape_num(vector<vector<float>> value);
         static int shape_num(vector<vector<vector<float>>> value);
 
+        static vector<int> uint16(vector<float> value);
+        static vector<vector<int>> uint16(vector<vector<float>> value);
+        static vector<vector<vector<int>>> uint16(vector<vector<vector<float>>> value);
 };
