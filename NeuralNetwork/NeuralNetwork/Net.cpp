@@ -11,11 +11,11 @@ double Net::m_recentAverageSmoothingFactor = 100.0; // Number of training sample
 void Net::getResults(vector<double>& resultVals) const
 {
 	resultVals.clear();
-
-	for (unsigned n = 0; n < m_layers.back().size() - 1; ++n)
+	for (int n = 0; n < m_layers.back().size() - 1; ++n)
 	{
 		resultVals.push_back(m_layers.back()[n].getOutputVal());
 	}
+
 }
 
 void Net::backProp(const std::vector<double>& targetVals)
@@ -24,8 +24,8 @@ void Net::backProp(const std::vector<double>& targetVals)
 
 	Layer& outputLayer = m_layers.back();
 	m_error = 0.0;
-
-	for (unsigned n = 0; n < outputLayer.size() - 1; ++n)
+#pragma omp parallel for num_threads(1)
+	for (int n = 0; n < outputLayer.size() - 1; ++n)
 	{
 		double delta = targetVals[n] - outputLayer[n].getOutputVal();
 		m_error += delta * delta;
@@ -51,7 +51,7 @@ void Net::backProp(const std::vector<double>& targetVals)
 		Layer& hiddenLayer = m_layers[layerNum];
 		Layer& nextLayer = m_layers[layerNum + 1];
 
-		for (unsigned n = 0; n < hiddenLayer.size(); ++n)
+		for (int n = 0; n < hiddenLayer.size(); ++n)
 		{
 			hiddenLayer[n].calcHiddenGradients(nextLayer);
 		}
