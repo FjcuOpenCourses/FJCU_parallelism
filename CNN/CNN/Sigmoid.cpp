@@ -1,5 +1,6 @@
 #include "Sigmoid.h"
 #include "Numpy.h"
+using namespace std;
 
 Sigmoid::Sigmoid(Conv2D *previous_layer) {
     //previous_layer: Reference to the previous layer.  
