@@ -127,14 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Connection.cpp" />
     <ClCompile Include="GeneratingData.cpp" />
     <ClCompile Include="NeuralNetwork.cpp" />
     <ClCompile Include="Numpy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connection.h" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="Net.h" />
+    <ClInclude Include="Neuron.h" />
     <ClInclude Include="Numpy.h" />
+    <ClInclude Include="TrainingData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
