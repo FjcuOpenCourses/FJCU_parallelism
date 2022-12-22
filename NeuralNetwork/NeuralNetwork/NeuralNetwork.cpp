@@ -15,7 +15,6 @@
 
 using namespace std;
 using namespace std::chrono;
-
 void showVectorVals(string label, vector<double>& v)
 {
 	cout << label << " ";
@@ -27,6 +26,7 @@ void showVectorVals(string label, vector<double>& v)
 }
 int main()
 {
+	int epoch = 10;
 	TrainingData trainData("trainingData.txt");
 	//e.g., {3, 2, 1 }
 	vector<unsigned> topology;
@@ -40,32 +40,34 @@ int main()
 	vector<double> inputVals, targetVals, resultVals;
 	int trainingPass = 0;
 	auto start = high_resolution_clock::now();
-	while (!trainData.isEof())
-	{
-		++trainingPass;
-		cout << endl << "Pass" << trainingPass;
+	for (int i = 0; i < epoch;i++) {
+		while (!trainData.isEof())
+		{
+			++trainingPass;
+			//cout << endl << "Pass" << trainingPass;
 
-		// Get new input data and feed it forward:
-		if (trainData.getNextInputs(inputVals) != topology[0])
-			break;
-		showVectorVals(": Inputs :", inputVals);
-		myNet.feedForward(inputVals);
+			// Get new input data and feed it forward:
+			if (trainData.getNextInputs(inputVals) != topology[0])
+				break;
+			//showVectorVals(": Inputs :", inputVals);
+			myNet.feedForward(inputVals);
 
-		// Collect the net's actual results:
-		myNet.getResults(resultVals);
-		showVectorVals("Outputs:", resultVals);
+			// Collect the net's actual results:
+			myNet.getResults(resultVals);
+			//showVectorVals("Outputs:", resultVals);
 
-		// Train the net what the outputs should have been:
-		trainData.getTargetOutputs(targetVals);
-		showVectorVals("Targets:", targetVals);
-		assert(targetVals.size() == topology.back());
+			// Train the net what the outputs should have been:
+			trainData.getTargetOutputs(targetVals);
+			//showVectorVals("Targets:", targetVals);
+			assert(targetVals.size() == topology.back());
 
-		myNet.backProp(targetVals);
+			myNet.backProp(targetVals);
 
-		// Report how well the training is working, average over recnet
-		cout << "Net recent accuracy: "<< 1 - myNet.getRecentAverageError() << endl;
+			// Report how well the training is working, average over recnet
+		}
+		cout << "Net recent accuracy at epoch: "<<i<<":" << 1 - myNet.getRecentAverageError() << endl;
 	}
-	cout << endl << "Done" << endl;
+
 	auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<microseconds>(stop - start);
 
