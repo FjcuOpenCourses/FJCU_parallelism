@@ -16,16 +16,20 @@ vector<double> Numpy::zeros(int Size1) {
 }
 vector<vector<double>> Numpy::zeros(int Size1, int Size2) {
     vector<vector<double>> result(Size1);
+#pragma omp parallel for
     for (int i = 0; i < result.size(); i++) {
         result[i] = Numpy::zeros(Size2);
     }
+#pragma omp barrier
     return result;
 }
 vector<vector<vector<double>>> Numpy::zeros(int Size1, int Size2, int Size3) {
     vector<vector<vector<double>>> result(Size1);
+#pragma omp parallel for
     for (int i = 0; i < result.size(); i++) {
         result[i] = Numpy::zeros(Size2, Size3);
     }
+#pragma omp barrier
     return result;
 }
 
