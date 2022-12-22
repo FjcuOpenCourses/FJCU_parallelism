@@ -128,7 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GeneratingData.cpp" />
+    <ClCompile Include="Net.cpp" />
     <ClCompile Include="NeuralNetwork.cpp" />
+    <ClCompile Include="Neuron.cpp" />
     <ClCompile Include="Numpy.cpp" />
     <ClCompile Include="TrainingData.cpp" />
   </ItemGroup>

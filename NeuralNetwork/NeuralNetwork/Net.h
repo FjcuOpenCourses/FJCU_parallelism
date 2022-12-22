@@ -3,6 +3,7 @@
 #include	<vector>
 #include	"Layer.h"
 using namespace std;
+// ****************** class Net ******************
 
 class Net
 {

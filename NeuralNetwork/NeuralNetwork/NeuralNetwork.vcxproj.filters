@@ -27,6 +27,12 @@
     <ClCompile Include="TrainingData.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="Neuron.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Net.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Numpy.h">
