@@ -8,6 +8,8 @@
 #include <cstdio>
 #include <chrono>
 #include "Numpy.h"
+#include "Connection.h"
+
 using namespace std;
 using namespace std::chrono;
 
@@ -97,11 +99,6 @@ unsigned TrainingData::getTargetOutputs(vector<double>& targetOutputVals)
 	return targetOutputVals.size();
 }
 
-struct Connection
-{
-	double weight;
-	double deltaWeight;
-};
 
 class Neuron;
 
