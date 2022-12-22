@@ -14,8 +14,66 @@ CNN::CNN() {
 
 
 }
-vector<vector<float>> CNN::conv_(vector<vector<float>> img, vector<vector<float>> conv_filter) {
+vector<vector<float>> CNN::conv_(vector<vector<vector<float>>> input2D, vector<vector<vector<vector<float>>>> conv_filter)
+{
+    float input2D_row = (float)input2D.size(), input2D_col = (float)input2D[0].size();                          //row = 1, cols = 0;
+    float conv_filter_row = (float)conv_filter.size(), conv_filter_col = (float)conv_filter[0].size();       //row = 1, cols = 0;
+    int Size1 = Numpy::shape(input2D, 0);
+    int Size2 = Numpy::shape(input2D, 1);
+    int Size3 = Numpy::shape(conv_filter_col, 0);
+    vector<vector<vector<float>>> result = Numpy::zeros(Size1, Size2, Size3);
     vector<vector<float>> conv_result;
+
+
+    //vector<float> arange1, arange2;
+    vector<float> floor;
+    float arange1, arange2;
+    float filter_bank_size[4];
+    float curr_region[1][1], curr_result[1][1];
+
+   /* arange1 = Numpy::arange(filter_bank_size[1] / 2, Numpy::shape(input2D, 0) - filter_bank_size[1] / 2 + 1);
+    arange2 = Numpy::arange(filter_bank_size[1] / 2, Numpy::shape(input2D, 1) - filter_bank_size[1] / 2 + 1);*/
+    
+    arange1 = Numpy::shape(input2D, 0) - filter_bank_size[1] / 2 + 1;
+    arange2 = Numpy::shape(input2D, 1) - filter_bank_size[1] / 2 + 1;
+
+    floor[0] = filter_bank_size[1] / 2.0;
+
+
+    for (float r = floor[0]; r < arange1; r++)
+    {
+        for (float c = floor[0]; c < arange2; c++)
+        {
+            if (input2D.size() == 2)
+            {
+                curr_region[] = input2D[int(r) - Numpy::Floor(floor):r + Numpy::Ceil(floor),
+                    c - Numpy::Floor(floor)) :c + Numpy::Ceil(floor)];
+
+            }
+            else
+            {
+                curr_region[r][c] = input2D[r - Numpy::Floor(floor):r + Numpy::Ceil(floor),
+                    c - Numpy::Floor(floor)) : c + Numpy::Ceil(floor), : ];
+            }
+        }
+    }
+    for (float filter_idx = 0; filter_idx < conv_filter_col; filter_idx++)
+    {
+        curr_result = curr_region * conv_filter[filter_idx];
+        conv_sum = Numpy::sum(curr_result);   
+
+        if (activation == NULL)
+        {
+            result[r][c][filter_idx] = conv_sum;
+        }
+        else
+        {
+            result[r][c][filter_idx] = activation(conv_sum);
+        }
+    }
+
+    conv_result = result[(filter_bank_size[1] / 2.0) : Numpy::shape(result, 0) - (filter_bank_size[1] / 2.0)][(filter_bank_size[1] / 2.0) : Numpy::shape(result, 1) - (filter_bank_size[1] / 2.0)][:];
+    
     return conv_result;
 }
 vector<vector<vector<float>>> CNN::relu(vector<vector<vector<float>>> feature_map) {

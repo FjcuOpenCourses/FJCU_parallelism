@@ -49,6 +49,14 @@ using namespace std;
      return result;
  }
 
+ vector<float> Numpy::arange(float start, float end) {
+     vector<float> result;
+     for (float i = start; i < end; i++) {
+         result.push_back(i);
+     }
+     return result;
+ }
+
     vector<vector<float>>  Numpy::Ceil(vector<vector<float>> input) {
         vector <vector<float>> result(input.size());
 #pragma omp parallel for
@@ -205,4 +213,25 @@ vector<vector<vector<vector<float>>>> Numpy::Rand(int Size1, int Size2, int Size
    int Numpy::shape(vector<vector<vector<float>>> value, int dimension) {
        vector<int>shape_value = shape(value);
        return shape_value[dimension];
+   }
+   vector<int> Numpy::uint16(vector<float> value) {
+       vector<int> result(value.size());
+       for (int i = 0; i < result.size(); i++) {
+           result[i] = int(value[i]);
+       }
+       return result;
+   }
+   vector<vector<int>> Numpy::uint16(vector<vector<float>> value) {
+       vector<vector<int>> result(value.size());
+       for (int i = 0; i < result.size(); i++) {
+           result[i] = Numpy::uint16(value[i]);
+       }
+       return result;
+   }
+   vector<vector<vector<int>>> Numpy::uint16(vector<vector<vector<float>>> value) {
+       vector<vector<vector<int>>> result(value.size());
+       for (int i = 0; i < result.size();i++) {
+           result[i] = Numpy::uint16(value[i]);
+       }
+       return result;
    }

@@ -8,6 +8,7 @@ class Numpy
         static vector<vector<vector<float>>> zeros(int Size1, int Size2, int Size3);
 
         static vector<int> arange(int start,int end,int stept);
+        static vector<float> arange(float end, float stept); 
 
         static vector<float> Ceil(vector<float> input);
         static vector<vector<float>> Ceil(vector<vector<float>> input);
@@ -43,4 +44,8 @@ class Numpy
         static int shape_num(vector<float> value);
         static int shape_num(vector<vector<float>> value);
         static int shape_num(vector<vector<vector<float>>> value);
+
+        static vector<int> uint16(vector<float> value);
+        static vector<vector<int>> uint16(vector<vector<float>> value);
+        static vector<vector<vector<int>>> uint16(vector<vector<vector<float>>> value);
 };

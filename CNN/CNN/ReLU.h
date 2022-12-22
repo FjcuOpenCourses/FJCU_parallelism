@@ -1,12 +1,14 @@
 #pragma once
 #include "Conv2D.h"
+#include "ActivationFunction.h"
+#include "BaseLayer.h"
+
 using namespace std;
-class ReLU
+class ReLU: public BaseLayer
 {
 	public:
 		ReLU(Conv2D *previous_layer);
+		BaseLayer getPreviousLayer();
 	private:
-		vector<int>	layer_input_size,layer_output_size;
-		Conv2D *previous_layer;
+		BaseLayer *previous_layer;
 };
-

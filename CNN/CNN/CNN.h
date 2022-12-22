@@ -6,6 +6,7 @@ class CNN {
 		vector<vector<vector<float>>> zeros(int Size1,int Size2,int Size3);
 
 		vector<vector<float>> conv_(vector<vector<float>> img, vector<vector<float>> conv_filter);
+		vector<vector<float>> conv_(vector<vector<vector<float>>> input2D, vector<vector<vector<vector<float>>>> conv_filter);
 		vector<vector<vector<float>>> relu(vector<vector<vector<float>>> feature_map);
 
 		vector<vector<vector<float>>> conv(vector<vector<float>> img, vector<vector<vector<float>>> conv_filter);
