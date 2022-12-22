@@ -130,6 +130,7 @@
     <ClCompile Include="GeneratingData.cpp" />
     <ClCompile Include="NeuralNetwork.cpp" />
     <ClCompile Include="Numpy.cpp" />
+    <ClCompile Include="TrainingData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connection.h" />

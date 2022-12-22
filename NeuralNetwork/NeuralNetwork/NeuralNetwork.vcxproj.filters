@@ -24,6 +24,9 @@
     <ClCompile Include="Numpy.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="TrainingData.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Numpy.h">
