@@ -57,4 +57,9 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="neu.py">
+      <Filter>來源檔案</Filter>
+    </None>
+  </ItemGroup>
 </Project>
