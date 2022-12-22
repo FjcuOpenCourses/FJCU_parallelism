@@ -15,12 +15,11 @@ vector<double> Numpy::zeros(int Size1) {
     return result;
 }
 vector<vector<double>> Numpy::zeros(int Size1, int Size2) {
-    vector<vector<double>> result(Size1);
-#pragma omp parallel for
-    for (int i = 0; i < result.size(); i++) {
-        result[i] = Numpy::zeros(Size2);
-    }
-#pragma omp barrier
+    vector<vector<double>> result(Size1,vector<double>(Size2, 0));
+//#pragma omp parallel for
+//    for (int i = 0; i < result.size(); i++) {
+//        result[i] = Numpy::zeros(Size2);
+//    }
     return result;
 }
 vector<vector<vector<double>>> Numpy::zeros(int Size1, int Size2, int Size3) {
@@ -29,7 +28,6 @@ vector<vector<vector<double>>> Numpy::zeros(int Size1, int Size2, int Size3) {
     for (int i = 0; i < result.size(); i++) {
         result[i] = Numpy::zeros(Size2, Size3);
     }
-#pragma omp barrier
     return result;
 }
 
@@ -55,7 +53,6 @@ vector<vector<double>>  Numpy::Ceil(vector<vector<double>> input) {
     for (int i = 0; i < input.size(); i++) {
         result[i] = Ceil(input[i]);
     }
-#pragma omp barrier
     return result;
 }
 
@@ -65,7 +62,6 @@ vector<double> Numpy::Ceil(vector<double> input) {
     for (int i = 0; i < input.size(); i++) {
         result[i] = ceil(input[i]);
     }
-#pragma omp barrier
     return result;
 }
 
@@ -75,7 +71,6 @@ vector<vector<double>> Numpy::Floor(vector<vector<double>> input) {
     for (int i = 0; i < input.size(); i++) {
         result[i] = Floor(input[i]);
     }
-#pragma omp barrier
     return result;
 }
 
@@ -85,7 +80,6 @@ vector<double> Numpy::Floor(vector<double> input) {
     for (int i = 0; i < input.size(); i++) {
         result[i] = floor(input[i]);
     }
-#pragma omp barrier
     return result;
 }
 
@@ -95,7 +89,6 @@ vector<vector<double>> Numpy::Max(vector<vector<double>> input, int value) {
     for (int i = 0; i < input.size(); i++) {
         result[i] = Max(input[i], value);
     }
-#pragma omp barrier
     return result;
 }
 vector<vector<vector<double>>> Numpy::Max(vector<vector<vector<double>>> input, int value) {
@@ -104,7 +97,6 @@ vector<vector<vector<double>>> Numpy::Max(vector<vector<vector<double>>> input, 
     for (int i = 0; i < input.size(); i++) {
         result[i] = Max(input[i], value);
     }
-#pragma omp barrier
     return result;
 }
 
@@ -114,12 +106,12 @@ vector<double>  Numpy::Max(vector<double> input, int value) {
     for (int i = 0; i < input.size(); i++) {
         result[i] = (input[i] >= value ? input[i] : value);
     }
-#pragma omp barrier
     return result;
 }
 vector<double> Numpy::Rand(int Size1)
 {
     vector<double>data(Size1);
+#pragma omp parallel for
     for (int i = 0; i < data.size(); i++) {
         data[i] = rand() / double(RAND_MAX);
     }
@@ -131,7 +123,6 @@ vector<vector<double>> Numpy::Rand(int Size1, int Size2) {
     for (int i = 0; i < result.size(); i++) {
         result[i] = Rand(Size2);
     }
-#pragma omp barrier
     return result;
 }
 vector<vector<vector<double>>> Numpy::Rand(int Size1, int Size2, int Size3) {
@@ -140,7 +131,6 @@ vector<vector<vector<double>>> Numpy::Rand(int Size1, int Size2, int Size3) {
     for (int i = 0; i < result.size(); i++) {
         result[i] = Rand(Size2, Size3);
     }
-#pragma omp barrier
     return result;
 }
 vector<vector<vector<vector<double>>>> Numpy::Rand(int Size1, int Size2, int Size3, int Size4) {

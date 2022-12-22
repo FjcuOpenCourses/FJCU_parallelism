@@ -33,7 +33,7 @@ double Neuron::sumDOW(const Layer& nextLayer) const
 	double sum = 0.0;
 
 	// Sum our contributions of the errors at the nodes we feed
-
+//#pragma omp parallel for reduction(+:sum)
 	for (unsigned n = 0; n < nextLayer.size() - 1; ++n)
 	{
 		sum += m_outputWeights[n].weight * nextLayer[n].m_gradient;
@@ -71,7 +71,6 @@ void Neuron::feedForward(const Layer& prevLayer)
 
 	// Sum the previous layer's outputs (which are our inputs)
 	// Include the bias node from the previous layer.
-
 	for (unsigned n = 0; n < prevLayer.size(); ++n)
 	{
 		sum += prevLayer[n].getOutputVal() *
